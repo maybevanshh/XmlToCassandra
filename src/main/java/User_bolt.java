@@ -3,8 +3,6 @@ import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.topology.base.BaseRichBolt;
 import org.apache.storm.tuple.Tuple;
-import org.checkerframework.checker.units.qual.C;
-
 import java.util.Map;
 
 public class User_bolt extends BaseRichBolt {

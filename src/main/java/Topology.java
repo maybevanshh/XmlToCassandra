@@ -13,7 +13,8 @@ public class Topology {
         Json_bolt jsonBolt = new Json_bolt();
         topologyBuilder.setBolt("json-bolt",jsonBolt,2).shuffleGrouping("json-spout").setDebug(true);
 
-        topologyBuilder.setBolt("User-bolt",new User_bolt(),1).shuffleGrouping("json-bolt");
+        topologyBuilder.setBolt("User-bolt",new User_bolt(),1).globalGrouping("json-bolt");
+        topologyBuilder.setBolt("kafka-bolt",new Kspout(),1).globalGrouping("json-bolt");
         Config config = new Config();
 
         LocalCluster cluster = new LocalCluster();
